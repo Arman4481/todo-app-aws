@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="center">
+
+<div class="card container">
+
+  <h2>Register</h2>
+
+  <input class="input" placeholder="Email">
+  <input type="password" class="input" placeholder="Password">
+
+  <button onclick="register()" class="btn btn-primary">Register</button>
+
+  <p style="margin-top:10px;">
+    Already have account? <a href="login.html" style="color:white;">Login</a>
+  </p>
+
+</div>
+
+<script>
+function register() {
+  alert("Registered successfully!");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
