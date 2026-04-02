@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" href="favicon.png">
 <meta charset="UTF-8">
 <title>Register</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="center">
+<body>
 
-<div class="card container">
+<div class="app">
 
   <h2>Register</h2>
 
-  <input class="input" placeholder="Email">
-  <input type="password" class="input" placeholder="Password">
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
 
-  <button onclick="register()" class="btn btn-primary">Register</button>
+  <button onclick="register()">Register</button>
 
-  <p style="margin-top:10px;">
-    Already have account? <a href="login.html" style="color:white;">Login</a>
-  </p>
+  <p>Already have account? <a href="login.html">Login</a></p>
 
 </div>
 
+
 <script>
 function register() {
-  alert("Registered successfully!");
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  if (!email || !password) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  alert("You have been registered successfully");
+
   window.location.href = "login.html";
 }
 </script>

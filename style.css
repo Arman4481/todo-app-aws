@@ -1,80 +1,98 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: sans-serif;
 }
 
-/* BACKGROUND */
 body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(135deg, #0f172a, #020617);
 }
 
-/* CARD */
-.container {
-  background: #fff;
-  width: 400px;
+.app {
+  width: 420px;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  animation: fadeIn 0.5s ease;
+  backdrop-filter: blur(20px);
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  color: white;
 }
 
-/* TITLE */
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-weight: 600;
 }
 
-/* INPUT */
 input {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  transition: 0.3s;
-}
-
-input:focus {
-  border-color: #667eea;
-  outline: none;
-}
-
-/* BUTTON */
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
+  padding: 14px;
+  border-radius: 12px;
   border: none;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  outline: none;
+  margin-bottom: 15px;
+  background: rgba(255,255,255,0.1);
   color: white;
-  font-weight: bold;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+button {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
   cursor: pointer;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
   transition: 0.3s;
 }
 
 button:hover {
-  opacity: 0.9;
+  transform: scale(1.05);
 }
 
-/* TASK LIST */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.top button {
+  width: auto;
+}
+
+.add-section {
+  display: flex;
+  gap: 10px;
+}
+
+.add-section input {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.add-section button {
+  width: auto;
+}
+
 ul {
-  list-style: none;
   margin-top: 20px;
+  list-style: none;
   max-height: 250px;
   overflow-y: auto;
 }
 
-/* TASK ITEM */
 .task {
-  background: #f3f4f6;
+  background: rgba(255,255,255,0.08);
   padding: 12px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -83,23 +101,25 @@ ul {
   align-items: center;
 }
 
-/* DELETE BUTTON */
-.delete-btn {
-  background: #ff4d4d;
-  padding: 6px 10px;
+.task button {
+  background: #ef4444;
+  padding: 6px 12px;
   border-radius: 8px;
-  font-size: 12px;
 }
 
-/* EMPTY TEXT */
-.empty {
+p {
   text-align: center;
-  color: #888;
   margin-top: 20px;
+  color: #cbd5f5;
 }
 
-/* ANIMATION */
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0ea5e9;
 }

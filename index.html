@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" href="favicon.png">
 <meta charset="UTF-8">
 <title>TaskFlow</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="center">
+<body>
 
-<div class="card container">
+<div class="app">
 
-  <div class="header">
+  <div class="top">
     <h2>TaskFlow</h2>
-    <button onclick="logout()" class="delete-btn">Logout</button>
+    <button onclick="logout()">Logout</button>
   </div>
 
-  <input id="taskInput" class="input" placeholder="Add task...">
-  <button onclick="addTask()" class="btn btn-primary">Add Task</button>
+  <div class="add-section">
+    <input id="taskInput" placeholder="Add task">
+    <button onclick="addTask()">Add</button>
+  </div>
 
   <ul id="taskList"></ul>
 

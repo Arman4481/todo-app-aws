@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" href="favicon.png">
 <meta charset="UTF-8">
 <title>Login</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="center">
+<body>
 
-<div class="card container">
+<div class="app">
 
   <h2>Login</h2>
 
-  <input id="email" class="input" placeholder="Email">
-  <input id="password" type="password" class="input" placeholder="Password">
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
 
-  <button onclick="login()" class="btn btn-primary">Login</button>
+  <button onclick="login()">Login</button>
 
-  <p style="margin-top:10px;">
-    No account? <a href="register.html" style="color:white;">Register</a>
-  </p>
+  <p>No account? <a href="register.html">Register</a></p>
 
 </div>
 
 <script>
 function login() {
-  const email = document.getElementById("email").value;
-
-  localStorage.setItem("user", email);  
+  const email = document.getElementById("email").value.trim();
+  if (!email) return;
+  localStorage.setItem("user", email);
   window.location.href = "index.html";
 }
 </script>

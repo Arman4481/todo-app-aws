@@ -1,22 +1,20 @@
 const API_URL = "https://ublwxhck19.execute-api.eu-north-1.amazonaws.com/tasks";
 
-// Protect route
 if (!localStorage.getItem("user")) {
   window.location.href = "login.html";
 }
 
-// Load tasks
 async function loadTasks() {
   const list = document.getElementById("taskList");
   list.innerHTML = "";
 
-  const user = localStorage.getItem("user"); // 🔥 NEW
+  const user = localStorage.getItem("user");
 
   const res = await fetch(`${API_URL}?userId=${user}`);
   const data = await res.json();
 
   if (data.length === 0) {
-    list.innerHTML = "<p class='empty'>No tasks yet</p>";
+    list.innerHTML = "<p>No tasks</p>";
     return;
   }
 
@@ -26,21 +24,20 @@ async function loadTasks() {
 
     li.innerHTML = `
       <span>${item.task}</span>
-      <button class="delete-btn" onclick="deleteTask('${item.taskId}')">Delete</button>
+      <button onclick="deleteTask('${item.taskId}')">Delete</button>
     `;
 
     list.appendChild(li);
   });
 }
 
-// Add task
 async function addTask() {
   const input = document.getElementById("taskInput");
   const task = input.value.trim();
 
   if (!task) return;
 
-  const user = localStorage.getItem("user");  // 🔥 NEW
+  const user = localStorage.getItem("user");
 
   await fetch(API_URL, {
     method: "POST",
@@ -48,9 +45,8 @@ async function addTask() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      taskId: Date.now().toString(),
       task: task,
-      userId: user   // 🔥 NEW
+      userId: user
     })
   });
 
@@ -58,18 +54,21 @@ async function addTask() {
   loadTasks();
 }
 
-// Delete
 async function deleteTask(id) {
+  const user = localStorage.getItem("user");
+
   await fetch(API_URL, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ taskId: id })
+    body: JSON.stringify({
+      taskId: id,
+      userId: user
+    })
   });
 
   loadTasks();
 }
 
-// Logout
 function logout() {
   localStorage.removeItem("user");
   window.location.href = "login.html";
